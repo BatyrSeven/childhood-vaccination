@@ -47,10 +47,23 @@ namespace Playground.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public IActionResult SignUp()
         {
-            return View("~/Views/Authorization/SignUp.cshtml");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(Doctor doctor)
+        {
+            if (ModelState.IsValid) {
+                _doctorService.Add(doctor);
+                HttpContext.Session.SetString("user", doctor.Login);
+                _greeting.SetUser(doctor.Login);
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
         }
     }
 }
