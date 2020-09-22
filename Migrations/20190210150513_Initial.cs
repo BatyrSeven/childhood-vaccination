@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Playground.Migrations
 {
-    public partial class FifthCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,6 +30,8 @@ namespace Playground.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    Login = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false),
                     IIN = table.Column<string>(maxLength: 20, nullable: false),
                     FirstName = table.Column<string>(maxLength: 50, nullable: false),
                     LastName = table.Column<string>(maxLength: 50, nullable: false),
@@ -47,8 +49,12 @@ namespace Playground.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    FirstName = table.Column<string>(maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(maxLength: 50, nullable: false)
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: true),
+                    Login = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false),
+                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    Phone = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,7 +81,15 @@ namespace Playground.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    Text = table.Column<string>(nullable: true)
+                    Text = table.Column<string>(nullable: true),
+                    ChildId = table.Column<int>(nullable: false),
+                    Room = table.Column<int>(nullable: false),
+                    DateTime = table.Column<DateTime>(nullable: false),
+                    DoctorFullName = table.Column<string>(nullable: false),
+                    Diagnosis = table.Column<string>(nullable: false),
+                    VisitType = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    PrescriptionText = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -104,9 +118,15 @@ namespace Playground.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    UserId = table.Column<int>(nullable: false),
                     Room = table.Column<int>(nullable: false),
+                    DoctorFullName = table.Column<string>(nullable: false),
+                    Diagnosis = table.Column<string>(nullable: false),
+                    Prescription = table.Column<string>(nullable: true),
+                    StartDate = table.Column<DateTime>(nullable: false),
                     Time = table.Column<TimeSpan>(nullable: false),
-                    DoctorId = table.Column<int>(nullable: false)
+                    DoctorId = table.Column<int>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

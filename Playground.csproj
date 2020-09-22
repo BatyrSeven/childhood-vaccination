@@ -596,7 +596,6 @@
     <Compile Remove="Services\InMemoryChildData.cs" />
     <Compile Remove="Migrations\20181124050534_InitialCreate.cs" />
     <Compile Remove="Migrations\20181124050534_InitialCreate.Designer.cs" />
-    <Compile Remove="Services\EmptyInterface.cs" />
     <Compile Remove="Services\VaccineList.cs" />
     <Compile Remove="Migrations\20181124055353_InitialCreate.cs" />
     <Compile Remove="Migrations\20181124072753_InitialCreate.cs" />
